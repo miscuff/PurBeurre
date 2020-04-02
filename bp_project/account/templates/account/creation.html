@@ -11,9 +11,9 @@
                         <h1 class="text-uppercase text-white font-weight-bold">Créer votre compte</h1>
                         <hr class="divider my-4" />
                     </div>
-                    <!--
+
                     <div class="col-lg-8">
-                        <form action="{% url 'account:connexion' %}" method="post">
+                        <form action="{% url 'account:creation' %}" method="post">
                             {% csrf_token %}
                                 <div class="align-items-right">
                                 {{ form.as_p }}
@@ -22,7 +22,7 @@
                         </form>
                         {% if envoi %} Votre compte a bien été créé {% endif %}
                     </div>
-                    -->
+
                 </div>
             </div>
         </header>
