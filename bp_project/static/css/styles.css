@@ -3994,6 +3994,16 @@ input[type=button].btn-block {
   text-decoration: none;
 }
 
+#contact {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/home/contact.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    color: white;
+}
+
+
 .navbar-nav {
   display: flex;
   flex-direction: column;
