@@ -134,3 +134,11 @@ STATICFILES_DIRS = (
 )
 
 INTERNAL_IPS = ['127.0.0.1']
+
+LOGIN_REDIRECT_URL = '/account/account/'
+
+LOGOUT_REDIRECT_URL = ''
+
+# if the method need to be login to be used
+# You need to decorate the method with @login_required
+LOGIN_URL = '/account/connexion/'

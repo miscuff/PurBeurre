@@ -1,28 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
-from django.forms import ValidationError
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 
-from .forms import ConnexionForm, CreationForm
+from .forms import LoginForm, CreationForm
 
 
+@csrf_exempt
 def connexion(request):
-    form = ConnexionForm(request.POST or None)
+    error = False
+    form = LoginForm(request.POST or None)
     if form.is_valid():
-        # Ici nous pouvons traiter les données du formulaire
-        email = form.cleaned_data['email']
+        username = form.cleaned_data['username']
         password = form.cleaned_data['password']
-        envoi = True
-        """
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            # Redirect to a success page.
+            return render(request, 'account/account.html', locals())
         else:
-            # Return an 'invalid login' error message.         
-             """
-    # Quoiqu'il arrive, on affiche la page du formulaire.
-    return render(request, 'account/connexion.html', locals())
+            error = True
+            return render(request, 'account/connexion.html', locals())
+    else:
+        return render(request, 'account/connexion.html', locals())
+
+
+# Voir comment utiliser plus proprement
+def deconnexion(request):
+    logout(request)
+    return render(request, 'home/accueil.html', locals())
 
 
 def account_creation(request):
@@ -31,8 +37,19 @@ def account_creation(request):
         username = form.cleaned_data['username']
         email = form.cleaned_data['email']
         password = form.cleaned_data['password']
-        User.objects.create_user(username, email, password)
+        user = User.objects.create_user(username, email, password)
+        user.save()
         envoi = True
-    return render(request, 'account/creation.html', locals())
+        return render(request, 'account/connexion.html', locals())
+    else:
+        return render(request, 'account/creation.html', locals())
 
 
+def account_page(request):
+    user = User.objects.filter(email='email').first()
+    context = {
+        'username': user.username,
+        'email': user.email,
+        'password': user.password
+    }
+    return render(request, 'account/account.html', context)

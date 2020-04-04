@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_logout.html' %}
 {% load static %}
 
 {% block content %}
@@ -23,7 +23,9 @@
                                 </div>
                             <input type="submit" value="Submit" />
                         </form>
-                        {% if envoi %} Connexion en cours{% endif %}
+                        {% if error %}
+                        <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
