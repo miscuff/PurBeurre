@@ -39,6 +39,7 @@ def account_creation(request):
         password = form.cleaned_data['password']
         user = User.objects.create_user(username, email, password)
         user.save()
+        form = LoginForm(None)
         envoi = True
         return render(request, 'account/connexion.html', locals())
     else:
