@@ -9,7 +9,7 @@ class Category(models.Model):
 class Product(models.Model):
     product_name = models.CharField(max_length=100)
     nutriscore_grade = models.CharField(max_length=1, null=True)
-    store = models.CharField(max_length=50, null=True)
+    store = models.TextField(null=True)
     url_picture = models.URLField()
     url_product = models.URLField()
     description = models.TextField(null=True)
