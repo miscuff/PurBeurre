@@ -1,4 +1,4 @@
-{% extends 'base_logout.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
@@ -13,13 +13,17 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</p>
-                        <div class="input-group mb-3 offset-lg-1 col-lg-10">
-                          <input type="text" class="form-control" placeholder="Produit" aria-label="Produit" aria-describedby="basic-addon2">
-                          <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">Chercher</button>
-                          </div>
-                        </div>
-                    </div>
+
+                            <form class="form-inline mb-3 offset-lg-1 col-lg-10" action="{% url 'products:search' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="search_products" placeholder="Produit" aria-label="Produit" aria-describedby="basic-addon2">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit">Chercher</button>
+                                  </div>
+                                </div>
+                            </form>
+
                 </div>
             </div>
         </header>

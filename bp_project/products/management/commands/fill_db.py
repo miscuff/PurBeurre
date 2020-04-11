@@ -7,7 +7,7 @@ from products.models import Product, Category
 class Command(BaseCommand):
 
     def __init__(self):
-        self. CATEGORIES_ARRAY = ['petit-dejeuners', 'plats-prepares',
+        self.CATEGORIES_ARRAY = ['petit-dejeuners', 'plats-prepares',
                                   'snacks-sales', 'biscuits-et-gateaux',
                                   'snacks-sucres', 'produits-laitiers',
                                   'epicerie', 'desserts', 'charcuteries',

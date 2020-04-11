@@ -4,5 +4,3 @@ from django.template import loader
 
 def home(request):
     return render(request, 'home/accueil.html', locals())
-
-
