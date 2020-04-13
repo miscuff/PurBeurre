@@ -4,20 +4,9 @@
 {% block content %}
 
 <!-- Masthead-->
-        <header class="masthead">
-            <div class="container h-30">
-                <div class="row h-30 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10">
-                        <h1 class="text-uppercase text-white font-weight-bold">Bonjour</h1>
-                        <h2 class="text-uppercase text-white font-weight-bold">Roberto</h2>
-                    </div>
-                </div>
-            </div>
-        </header>
-
         <section class="page-section" id="services">
             <div class="container">
-                <h2 class="text-center mt-0">Résultat de la recherche</h2>
+                <h2 class="text-center mt-0">Résultat de la recherche : {{ search_products }}</h2>
                 <hr class="divider my-4" />
                 {% if products|length_is:"0" %}
                 <div class="row">
@@ -34,6 +23,7 @@
                         <img class="img-responsive" src="{{ product.url_picture_small }}" alt="{{ product.product_name }}">
                         </a>
                      </div>
+                    {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
                     {% endfor %}
                 {% endif %}
             </div>
