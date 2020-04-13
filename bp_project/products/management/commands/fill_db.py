@@ -17,6 +17,7 @@ class Command(BaseCommand):
                                   'bieres', 'pates-a-tartiner',
                                   'boissons-chaudes', 'graines', 'biscuits']
 
+        self.CAT = ['petit-dejeuners']
 
     def fill_categories(self, cat):
         for index, value in enumerate(cat):
@@ -39,7 +40,8 @@ class Command(BaseCommand):
                     products = Product(product_name=i['product_name_fr'],
                                        nutriscore_grade=i['nutrition_grades'],
                                        store=i['stores_tags'],
-                                       url_picture=i['image_ingredients_url'],
+                                       url_picture=i['selected_images']['front']['display']['fr'],
+                                       url_picture_small=i['selected_images']['front']['small']['fr'],
                                        url_product=i['url'],
                                        description=i['generic_name_fr'],
                                        category_id=category_id.pk)
@@ -54,5 +56,5 @@ class Command(BaseCommand):
                     break
 
     def handle(self, *args, **options):
-        self.fill_categories(self.CATEGORIES_ARRAY)
+        #self.fill_categories(self.CATEGORIES_ARRAY)
         self.fill_products(self.CAT)

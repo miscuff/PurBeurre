@@ -11,6 +11,7 @@ class Product(models.Model):
     nutriscore_grade = models.CharField(max_length=1, null=True)
     store = models.TextField(null=True)
     url_picture = models.URLField()
+    url_picture_small = models.URLField(null=True)
     url_product = models.URLField()
     description = models.TextField(null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
