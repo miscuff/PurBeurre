@@ -9,28 +9,27 @@
     <div class="container h-30">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
-                <h1 class="text-uppercase text-white font-weight-bold">Résultat de la recherche : {{ search_products }}</h1>
+                <h1 class="text-uppercase text-white font-weight-bold">Mes Favoris</h1>
                 <hr class="divider my-4" />
             </div>
         </div>
     </div>
 </header>
 
-<section class="page-section p-4" id="aliments">
-         {% if products|length_is:"0" %}
+<section class="page-section p-4" id="favorites">
+         {% if favorites|length_is:"0" %}
         <div class="row">
             <div class="text-center">
-             <p class="text-muted"> Palsambleu ! Nous n'avons trouvé aucun résultat à cette requête. Même pas de quoi se ronger la chique !
-              Partez de nouveau à l'abordage ! </p>
+             <p class="text-muted"> Pour l'instant vous n'avez pas d'aliments dans mes favoris </p>
             </div>
         </div>
         {% else %}
         <div class="row text-center m-1 p-1">
-            {% for product in products %}
+            {% for favorite in favorites %}
             <div class="col-sm-4 text-center">
-                <p>{{ product.product_name }}</p>
-                <a href="{% url 'products:detail' product_id=product.id %}">
-                <img class="img-responsive" src="{{ product.url_picture_small }}" alt="{{ product.product_name }}">
+                <p>{{ favorite.product_name }}</p>
+                <a href="{% url 'products:substitute' product_id=favorite.id %}">
+                <img class="img-responsive" src="{{ favorite.url_picture_small }}" alt="{{ favorite.product_name }}">
                 </a>
              </div>
             {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}

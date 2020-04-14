@@ -17,8 +17,6 @@ class Command(BaseCommand):
                                   'bieres', 'pates-a-tartiner',
                                   'boissons-chaudes', 'graines', 'biscuits']
 
-        self.CAT = ['petit-dejeuners']
-
     def fill_categories(self, cat):
         for index, value in enumerate(cat):
             try:
@@ -56,5 +54,5 @@ class Command(BaseCommand):
                     break
 
     def handle(self, *args, **options):
-        #self.fill_categories(self.CATEGORIES_ARRAY)
-        self.fill_products(self.CAT)
+        self.fill_categories(self.CATEGORIES_ARRAY)
+        self.fill_products(self.CATEGORIES_ARRAY)

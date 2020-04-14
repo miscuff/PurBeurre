@@ -1,5 +1,6 @@
 from django.shortcuts import render
-import django.contrib.postgres
+from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 from .models import Category, Product, Substitute
 
@@ -24,3 +25,43 @@ def detail(request, product_id):
         'substitutes': substitutes,
     }
     return render(request, 'products/resultats.html', context)
+
+
+def substitute(request, product_id):
+    substitute_chosen = Product.objects.get(pk=product_id)
+    stores = substitute_chosen.store
+    if stores == "[]":
+        store = ""
+    else:
+        store = stores.split(',')
+        store = store[0]
+        store = store.replace("['", "")
+        store = store.replace("']", "")
+    context = {
+        'substitute': substitute_chosen,
+        'store': store
+    }
+    return render(request, 'products/informations.html', context)
+
+
+@login_required
+def save(request, sub_id):
+    fav = Product.objects.get(pk=sub_id)
+    user = request.user.id
+    try:
+        if Substitute.objects.filter(pk=fav.id):
+            print("Cet aliment est déjà dans vos favoris")
+        else:
+            add_favorite = Substitute(id=fav.id, created_at=timezone.now(),
+                                      user_id=user)
+            add_favorite.save()
+    except KeyError as e:
+        print(e)
+    sub = Substitute.objects.filter(user_id=user)
+    context = {
+        'favorites': sub,
+    }
+    return render(request, 'products/favorites.html', context)
+
+
+#Créer une vue pour se connecter

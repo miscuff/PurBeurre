@@ -11,16 +11,18 @@
                         <h1 class="text-uppercase text-white font-weight-bold">Connectez-vous</h1>
                         <hr class="divider my-4" />
                     </div>
-                    <div class="col-lg-8 align-self-baseline">
+                    <ul class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">Vous n'avez pas encore de compte?
                         <a href="{% url 'account:creation' %}"> Créez-en un. </a>
                         </p>
 
                         <form action="{% url 'account:connexion' %}" method="post">
                             {% csrf_token %}
-                                <div class="align-items-right">
-                                {{ form.as_p }}
-                                </div>
+                                <ul class="text-align">
+                                    <li>
+                                    {{ form.as_p }}
+                                    </li>
+                                </ul>
                             <input type="submit" value="Submit" />
                         </form>
                         {% if error %}

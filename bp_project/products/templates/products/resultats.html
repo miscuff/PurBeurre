@@ -16,7 +16,7 @@
         </header>
 
 
-        <section class="page-section p-4" id="services">
+        <section class="page-section p-4" id="resultats">
             <div class="container">
                 <h2 class="text-center mt-0">Vous pouvez remplacer cet aliment par</h2>
                 <hr class="divider my-4" />
@@ -28,12 +28,18 @@
                     </div>
                 </div>
                 {% else %}
+
+                <div class="row text-center m-1 p-1">
                     {% for substitute in substitutes %}
-                    <div class="col-sm-4 text-center">
+                    <div class="col-3 text-center m-1">
                         <p>{{ substitute.product_name }}</p>
+                        <a href="{% url 'products:substitute' product_id=substitute.id %}">
+                        <img class="img-responsive" src="{{ substitute.url_picture_small }}" alt="{{ substitute.product_name }}">
+                         </a>
                      </div>
                     {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
                     {% endfor %}
+                    </div>
                 {% endif %}
             </div>
         </section>
