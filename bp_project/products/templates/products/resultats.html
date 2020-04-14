@@ -4,8 +4,8 @@
 {% block content %}
 
 <!-- Masthead-->
-        <header class="masthead">
-            <div class="container h-100">
+        <header class="masthead" style="background: url('{{ product.url_picture }}'); min-height: 20rem; height: 30vh;">
+            <div class="container h-30">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
                         <h1 class="text-uppercase text-white font-weight-bold">{{ product.product_name }}</h1>
@@ -16,7 +16,7 @@
         </header>
 
 
-        <section class="page-section" id="services">
+        <section class="page-section p-4" id="services">
             <div class="container">
                 <h2 class="text-center mt-0">Vous pouvez remplacer cet aliment par</h2>
                 <hr class="divider my-4" />

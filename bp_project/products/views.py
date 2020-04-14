@@ -16,10 +16,11 @@ def search(request):
 
 def detail(request, product_id):
     product_chosen = Product.objects.get(pk=product_id)
-    products = product_chosen.objects.filter.select_related('category')
-    substitutes = [product for product in products if products['nutriscore_grade'] < product_chosen['nutriscore_grade']]
+    category = product_chosen.category_id
+    products = Product.objects.filter(category_id=category).values()
+    substitutes = [product for product in products if product['nutriscore_grade'] < product_chosen.nutriscore_grade]
     context = {
         'product': product_chosen,
         'substitutes': substitutes,
     }
-    return render(request, 'store/resultats.html', context)
+    return render(request, 'products/resultats.html', context)
