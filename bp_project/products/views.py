@@ -64,4 +64,14 @@ def save(request, sub_id):
     return render(request, 'products/favorites.html', context)
 
 
-#Créer une vue pour se connecter
+@login_required
+def show_favorites(request):
+    user_id = request.user.id
+    sub = Substitute.objects.filter(user_id=user_id).values()
+
+    print(sub['id'])
+    favorites= ''
+    context = {
+        'favorites': favorites,
+    }
+    return render(request, 'products/favorites.html', context)

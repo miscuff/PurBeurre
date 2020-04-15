@@ -34,10 +34,10 @@
                     </form>
                     <ul class="navbar-nav ml-2 my-2 my-lg-0">
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account:account' %}">
                             <img src="{% static 'img/logo_account.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Mon compte">
                         </a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'products:show_favorites' %}">
                             <img src="{% static 'img/logo_carotte.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Mes aliments">
                         </a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account:deconnexion' %}">

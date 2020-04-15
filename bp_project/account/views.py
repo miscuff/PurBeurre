@@ -46,7 +46,8 @@ def account_creation(request):
 
 
 def account_page(request):
-    user = User.objects.filter(email='email').first()
+    user_id = request.user.id
+    user = User.objects.filter(pk=user_id).first()
     context = {
         'username': user.username,
         'email': user.email,
