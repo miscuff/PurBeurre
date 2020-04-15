@@ -67,10 +67,13 @@ def save(request, sub_id):
 @login_required
 def show_favorites(request):
     user_id = request.user.id
-    sub = Substitute.objects.filter(user_id=user_id).values()
-
-    print(sub['id'])
-    favorites= ''
+    sub = Substitute.objects.filter(user_id=user_id).values('id')
+    get_all_subs = []
+    for i in sub:
+        get_all_subs.append(i['id'])
+    favorites = [favorite for favorite in Product.objects.all().values() if
+                 favorite['id'] in get_all_subs]
+    print(favorites)
     context = {
         'favorites': favorites,
     }
