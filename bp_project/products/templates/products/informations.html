@@ -16,32 +16,29 @@
 </header>
 
 <section class="page-section p-4" id="informations">
+    <div class="container">
         <div class="row text-center m-1 p-1">
-            <div class="col-sm-4 text-center">
-                <img class="img-responsive" src="{{ substitute.url_picture_small }}" alt="{{ substitute.product_name }}">
-             </div>
-            <div class="col-sm-8 text-left">
-                <ul>
-                    <li>Description :
-                        {% if substitute.description %}
-                        {{ substitute.description }}
-                        {% else %}
-                        Indisponible
-                        {% endif %}
-                    </li>
-                    <li>Nutriscore : {{ substitute.nutriscore_grade }}</li>
-                    <li>Magasin :
-                        {% if store %}
-                        {{ store }}
-                        {% else %}
-                        Indisponible
-                        {% endif %}
-                    </li>
-                    <li><a class="d-block" href="{{ substitute.url_product }}" style="color:blue;">En savoir plus sur ce produit</a>
-                    </li>
-                </ul>
+            <div class="col-sm-6 text-center">
+                <p> Nutriscore </p>
+                <p> {{ nutriscore }}</p>
             </div>
+            <div class="col-sm-6 text-left">
+                <p> Description :
+                    {% if substitute.description %}
+                    {{ substitute.description }}
+                    {% else %}
+                    Indisponible
+                    {% endif %}
+                </p>
+             </div>
         </div>
+        <div class="row text-center m-1 p-1">
+            <div class="col-sm-12 text-center">
+            <a class="d-block" href="{{ substitute.url_product }}" style="color:blue;">Voir la fiche d'OpenFoodFacts</a>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 {% endblock %}

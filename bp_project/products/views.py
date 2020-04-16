@@ -37,17 +37,15 @@ def detail(request, product_id):
 
 def substitute(request, product_id):
     substitute_chosen = Product.objects.get(pk=product_id)
-    stores = substitute_chosen.store
-    if stores == "[]":
-        store = ""
-    else:
-        store = stores.split(',')
-        store = store[0]
-        store = store.replace("['", "")
-        store = store.replace("']", "")
+    nutriscore = substitute_chosen.nutriscore_grade
+    liste_nut = ['a','b','c','d','e']
+    for i, value in enumerate(liste_nut):
+        if nutriscore == liste_nut[i]:
+            liste_nut[i] = value.upper()
+    nut = ' '.join(liste_nut)
     context = {
         'substitute': substitute_chosen,
-        'store': store
+        'nutriscore': nut,
     }
     return render(request, 'products/informations.html', context)
 
@@ -81,3 +79,4 @@ def show_favorites(request):
         'favorites': favorites,
     }
     return render(request, 'products/favorites.html', context)
+

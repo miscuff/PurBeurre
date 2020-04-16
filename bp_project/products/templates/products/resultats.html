@@ -15,9 +15,7 @@
             </div>
         </header>
 
-
-        <section class="page-section p-4" id="resultats">
-            <div class="container">
+            <div class="container p-4">
                 <h2 class="text-center mt-0">Vous pouvez remplacer cet aliment par : </h2>
                 <hr class="divider my-4" />
                 {% if substitutes|length_is:"0" %}
@@ -26,35 +24,36 @@
                      <p class="text-muted"> Il n'y a pas d'aliment avec un meilleur nutriscore dans notre base de données </p>
                     </div>
                 </div>
-                {% else %}
 
-                <div class="row text-center m-1 p-1">
-                    {% for substitute in substitutes %}
-                    <div class="col-3 text-center m-1">
-                        <p>{{ substitute.product_name }}</p>
-                        <a href="{% url 'products:substitute' product_id=substitute.id %}">
-                        <img class="img-responsive" src="{{ substitute.url_picture_small }}" alt="{{ substitute.product_name }}">
-                         </a>
-                        {% if user.is_authenticated %}
-                            {% if substitute.id in save_sub %}
-                                    <p> Sauvegardé </p>
-                                {% else %}
-                                <form class="form-check" action="{% url 'products:save' sub_id=substitute.id %}" method="post">
-                                {% csrf_token %}
-                                  <input class="form-check-input" value="" type="checkbox" id="saveSub">
-                                  <label class="form-check-label" for="saveSub">
-                                    Sauvegarder
-                                  </label>
-                                    </form>
+                {% else %}
+                <div class="row text-center">
+                        {% for substitute in substitutes %}
+                        <div class="col-4 text-center">
+                            <p>{{ substitute.product_name }}</p>
+                            <a href="{% url 'products:substitute' product_id=substitute.id %}">
+                            <img class="img-responsive" src="{{ substitute.url_picture_small }}" alt="{{ substitute.product_name }}">
+                             </a>
+                            {% if user.is_authenticated %}
+                                {% if substitute.id in save_sub %}
+                                        <p> Sauvegardé </p>
+                                    {% else %}
+                                    <form class="form-check" action="{% url 'products:save' sub_id=substitute.id %}" method="post">
+                                    {% csrf_token %}
+                                      <input class="form-check-input" type="checkbox" id="saveSub">
+                                      <label class="form-check-label" for="saveSub">
+                                        Sauvegarder
+                                      </label>
+                                        </form>
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
+                        </div>
+                        {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+                        {% endfor %}
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
-                    {% endfor %}
                 </div>
                 {% endif %}
             </div>
-        </section>
+
 
 
 {% endblock %}
