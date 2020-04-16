@@ -29,8 +29,9 @@
                     Pur Beurre</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <form class="form-inline ml-auto my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Chercher">
+                    <form class="form-inline ml-auto my-2 my-lg-0" action="{% url 'products:search' %}" method="post">
+                        {% csrf_token %}
+                      <input class="form-control mr-sm-2" name="search_products" type="search" placeholder="Chercher" aria-label="Chercher">
                     </form>
                     <ul class="navbar-nav ml-2 my-2 my-lg-0">
                         {% if user.is_authenticated %}

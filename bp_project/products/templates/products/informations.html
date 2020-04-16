@@ -40,11 +40,6 @@
                     <li><a class="d-block" href="{{ substitute.url_product }}" style="color:blue;">En savoir plus sur ce produit</a>
                     </li>
                 </ul>
-                {% if user.is_authenticated %}
-                <a href="{% url 'products:save' sub_id=substitute.id %}" style="color:blue;">Ajouter ce produit dans mes favoris</a>
-                {% else %}
-                <a href="{% url 'account:connexion' %}" style="color:blue;">S'authentifier pour ajouter ce produit dans mes favoris</a>
-                {% endif %}
             </div>
         </div>
 </section>

@@ -18,13 +18,12 @@
 
         <section class="page-section p-4" id="resultats">
             <div class="container">
-                <h2 class="text-center mt-0">Vous pouvez remplacer cet aliment par</h2>
+                <h2 class="text-center mt-0">Vous pouvez remplacer cet aliment par : </h2>
                 <hr class="divider my-4" />
                 {% if substitutes|length_is:"0" %}
                 <div class="row">
                     <div class="text-center">
-                     <p class="text-muted"> Palsambleu ! Nous n'avons trouvé aucun résultat à cette requête. Même pas de quoi se ronger la chique !
-                      Partez de nouveau à l'abordage ! </p>
+                     <p class="text-muted"> Il n'y a pas d'aliment avec un meilleur nutriscore dans notre base de données </p>
                     </div>
                 </div>
                 {% else %}
@@ -36,10 +35,23 @@
                         <a href="{% url 'products:substitute' product_id=substitute.id %}">
                         <img class="img-responsive" src="{{ substitute.url_picture_small }}" alt="{{ substitute.product_name }}">
                          </a>
-                     </div>
+                        {% if user.is_authenticated %}
+                            {% if substitute.id in save_sub %}
+                                    <p> Sauvegardé </p>
+                                {% else %}
+                                <form class="form-check" action="{% url 'products:save' sub_id=substitute.id %}" method="post">
+                                {% csrf_token %}
+                                  <input class="form-check-input" value="" type="checkbox" id="saveSub">
+                                  <label class="form-check-label" for="saveSub">
+                                    Sauvegarder
+                                  </label>
+                                    </form>
+                            {% endif %}
+                        {% endif %}
+                    </div>
                     {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
                     {% endfor %}
-                    </div>
+                </div>
                 {% endif %}
             </div>
         </section>
