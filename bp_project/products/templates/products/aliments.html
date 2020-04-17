@@ -32,7 +32,6 @@
                 <img class="img-responsive" src="{{ product.url_picture_small }}" alt="{{ product.product_name }}">
                 </a>
              </div>
-            {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
             {% endfor %}
         </div>
         {% endif %}

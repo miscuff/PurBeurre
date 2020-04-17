@@ -4,34 +4,39 @@
 {% block content %}
 
 <!-- Masthead-->
-        <header class="masthead">
-            <div class="container h-100">
+        <header class="masthead" style="min-height: 20rem; height: 30vh;">
+            <div class="container h-30">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
                         <h1 class="text-uppercase text-white font-weight-bold">Connectez-vous</h1>
                         <hr class="divider my-4" />
                     </div>
-                    <ul class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Vous n'avez pas encore de compte?
-                        <a href="{% url 'account:creation' %}"> Créez-en un. </a>
-                        </p>
-
-                        <form action="{% url 'account:connexion' %}" method="post">
-                            {% csrf_token %}
-                                <ul class="text-align">
-                                    <li>
-                                    {{ form.as_p }}
-                                    </li>
-                                </ul>
-                            <input type="submit" value="Submit" />
-                        </form>
-                        {% if error %}
-                        <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
-                        {% endif %}
-                    </div>
                 </div>
             </div>
         </header>
+
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <p class="text-white-75 font-weight-normal mb-5" style="color: black;">Vous n'avez pas encore de compte?
+                            <a href="{% url 'account:creation' %}"> Créez-en un. </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-sm-12">
+                            <form action="{% url 'account:connexion' %}" method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" value="Submit" />
+                            </form>
+                            {% if error %}
+                            <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
 
 
 {% endblock %}
