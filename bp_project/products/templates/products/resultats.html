@@ -29,10 +29,17 @@
                 <div class="row text-center">
                         {% for substitute in substitutes %}
                         <div class="col-sm-4 text-center">
-                            <p>{{ substitute.product_name }}</p>
+
                             <a href="{% url 'products:substitute' product_id=substitute.id %}">
+                                <div class="container">
                             <img class="img-responsive" src="{{ substitute.url_picture_small }}" alt="{{ substitute.product_name }}">
-                             </a>
+                                <div class="top-right">
+                                <h3>{{ substitute.nutriscore_grade|upper }}</h3>
+                                 </div>
+                                </div>
+                            </a>
+
+                            <p>{{ substitute.product_name }}</p>
                             {% if user.is_authenticated %}
                                 {% if substitute.id in save_sub %}
                                         <p> Sauvegardé </p>

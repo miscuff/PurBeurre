@@ -10126,3 +10126,28 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
+
+@font-face {
+    font-family: 'heroes';
+    src: url("/static/fonts/heroes.ttf");
+}
+
+@font-face {
+    font-family: 'truecrimes';
+    src: url("/static/fonts/true-crimes.ttf");
+}
+
+.top-right {
+    position: absolute;
+    top: 0%;
+    right: 30%;
+    color: red;
+    border: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    height: 2em;
+    width: 2em;
+    font-family: heroes, truecrimes;
+    }
+
+
