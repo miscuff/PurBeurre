@@ -28,7 +28,7 @@
                 {% else %}
                 <div class="row text-center">
                         {% for substitute in substitutes %}
-                        <div class="col-sm-4 text-center">
+                        <div class="col-sm-4 text-center p-1">
 
                             <a href="{% url 'products:substitute' product_id=substitute.id %}">
                                 <div class="container">
@@ -46,10 +46,10 @@
                                     {% else %}
                                     <form class="form-check" action="{% url 'products:save' sub_id=substitute.id %}" method="post">
                                     {% csrf_token %}
-                                      <input class="form-check-input" type="checkbox" id="saveSub">
-                                      <label class="form-check-label" for="saveSub">
-                                        Sauvegarder
-                                      </label>
+                                        <button class="btn btn-outline-secondary" type="submit">
+                                            <i class="fas fa-camera"></i>
+                                        </button>
+                                            Sauvegarder
                                         </form>
                                 {% endif %}
                             {% endif %}

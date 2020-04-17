@@ -36,17 +36,17 @@
                     <ul class="navbar-nav ml-2 my-2 my-lg-0">
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account:account' %}">
-                            <img src="{% static 'img/logo_account.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Mon compte">
+                            <i class="fas fa-user"></i>
                         </a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'products:show_favorites' %}">
-                            <img src="{% static 'img/logo_carotte.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Mes aliments">
+                            <i class="fas fa-carrot"></i>
                         </a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account:deconnexion' %}">
-                            <img src="{% static 'img/logo_logout.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Déconnexion">
+                            <i class="fas fa-sign-out-alt"></i>
                         </a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account:connexion' %}">
-                            <img src="{% static 'img/logo_connexion.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Connexion">
+                           <i class="fas fa-sign-in-alt"></i>
                             </a></li>
                         {% endif %}
                     </ul>
