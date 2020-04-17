@@ -9,7 +9,7 @@ class AccountPageTestCase(TestCase):
 
     def setUp(self):
         CreationForm('Alex', 'alexandre@gmail.com', 'toto')
-        self.user = User.objects.filter(email='alexandre@gmail.com').first()
+        self.user = User.objects.filter(email='alexandre@gmail.com')
 
     # connexion
     def test_connexion(self):
