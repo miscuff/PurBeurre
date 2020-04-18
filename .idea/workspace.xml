@@ -2,78 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d55a862c-98b7-44b7-a294-382d95f8975c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/templates/account/account.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/templates/account/connexion.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/templates/account/creation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/account/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/templates/home/accueil.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/home/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/dumps/products.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/management/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/management/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/management/commands/fill_db.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/templates/products/aliments.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/templates/products/favorites.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/templates/products/informations.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/templates/products/resultats.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/products/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bp_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/css/bootstrap/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/css/bootstrap/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/fonts/heroes.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/fonts/true-crimes.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/home/colette.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/home/contact.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/home/remy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/logo_account.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/logo_carotte.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/logo_connexion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/logo_logout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/logo_pur_beurre.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/img/photo_accueil.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/js/bootstrap/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/js/bootstrap/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/js/jquery/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/js/jquery/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/static/js/scripts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bp_project/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state>
+              <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -116,7 +46,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bp_project/asgi.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -128,19 +58,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bp_project/settings.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="157" column="23" lean-forward="true" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
+              <folding>
+                <element signature="e#311#320#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bp_project/urls.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+              <folding>
+                <element signature="e#634#666#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bp_project/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#226#235#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -179,10 +130,10 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/bp_project/__init__.py" />
-        <option value="$PROJECT_DIR$/bp_project/settings.py" />
+        <option value="$PROJECT_DIR$/bp_project/asgi.py" />
         <option value="$PROJECT_DIR$/bp_project/urls.py" />
         <option value="$PROJECT_DIR$/bp_project/wsgi.py" />
-        <option value="$PROJECT_DIR$/bp_project/asgi.py" />
+        <option value="$PROJECT_DIR$/bp_project/settings.py" />
       </list>
     </option>
   </component>
@@ -247,10 +198,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="642" y="23" width="1231" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="23" y="23" width="1231" height="777" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14380166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14380166" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -261,7 +211,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.329927" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.329927" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -327,23 +277,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bp_project/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bp_project/settings.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bp_project/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bp_project/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bp_project/asgi.py">
@@ -352,6 +286,43 @@
           <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
           <folding>
             <element signature="e#226#235#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bp_project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding>
+            <element signature="e#634#666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bp_project/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#226#235#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bp_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="157" column="23" lean-forward="true" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
+          <folding>
+            <element signature="e#311#320#0" expanded="true" />
           </folding>
         </state>
       </provider>

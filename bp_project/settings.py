@@ -31,7 +31,7 @@ else:
     DEBUG = True
 
 #In Production add 'purdebeurre.herokuapp.com'
-ALLOWED_HOSTS = ['purdebeurre.herokuapp.com']
+ALLOWED_HOSTS = ['purdebeurre.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -154,7 +154,8 @@ LOGIN_URL = '/account/connexion/'
 
 if os.environ.get('ENV') == 'PRODUCTION':
     # Static files settings
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    PROJECT_ROOT = BASE_DIR
+    print(PROJECT_ROOT)
 
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
