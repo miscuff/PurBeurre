@@ -154,7 +154,7 @@ LOGIN_URL = '/account/connexion/'
 
 if os.environ.get('ENV') == 'PRODUCTION':
     # Static files settings
-    PROJECT_ROOT = BASE_DIR
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
     print(PROJECT_ROOT)
 
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
