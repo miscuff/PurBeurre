@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
-import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,7 +30,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['purdebeurre.herokuapp.com']
+#In Production add 'purdebeurre.herokuapp.com'
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -138,6 +138,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
 INTERNAL_IPS = ['127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/account/account/'
@@ -160,8 +164,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = \
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
-
