@@ -31,7 +31,7 @@ else:
     DEBUG = True
 
 #In Production add 'purdebeurre.herokuapp.com'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['purdebeurre.herokuapp.com']
 
 
 # Application definition
