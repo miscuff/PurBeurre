@@ -27,7 +27,7 @@ def detail(request, product_id):
     sub = Substitute.objects.filter(user_id=user_id).values('id')
     save_sub = [subs for subs in sub]
     save_sub = [subs['id'] for subs in save_sub]
-    #Get nutriscore to display on pictures
+    # Get nutriscore to display on pictures
     context = {
         'product': product_chosen,
         'substitutes': substitutes,
