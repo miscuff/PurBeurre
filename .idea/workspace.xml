@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d55a862c-98b7-44b7-a294-382d95f8975c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bp_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/css/bootstrap/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/css/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/heroes.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/fonts/heroes.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/true-crimes.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/fonts/true-crimes.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/home/colette.png" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/home/colette.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/home/contact.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/home/contact.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/home/remy.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/home/remy.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo_account.png" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/logo_account.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo_carotte.png" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/logo_carotte.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo_connexion.png" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/logo_connexion.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo_logout.png" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/logo_logout.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo_pur_beurre.png" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/logo_pur_beurre.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/photo_accueil.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/img/photo_accueil.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/js/bootstrap/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/js/bootstrap/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/js/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/js/jquery/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/bp_project/static/js/scripts.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bp_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="135">
+              <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="61" />
               <folding>
                 <element signature="e#311#320#0" expanded="true" />
               </folding>
@@ -377,8 +356,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bp_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+        <state relative-caret-position="135">
+          <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="61" />
           <folding>
             <element signature="e#311#320#0" expanded="true" />
           </folding>

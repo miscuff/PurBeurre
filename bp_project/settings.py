@@ -30,7 +30,6 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-#In Production add 'purdebeurre.herokuapp.com'
 ALLOWED_HOSTS = ['purdebeurre.herokuapp.com', '127.0.0.1']
 
 
@@ -138,13 +137,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Put this to launch in Dev Environment
-"""
-STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'bp_project/static'),
-    )
-"""
-
 INTERNAL_IPS = ['127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/account/account/'
@@ -157,7 +149,7 @@ LOGIN_URL = '/account/connexion/'
 
 if os.environ.get('ENV') == 'PRODUCTION':
     # Static files settings
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
@@ -167,7 +159,12 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = \
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
+else:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'bp_project/static'),
+    )
