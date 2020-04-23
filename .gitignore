@@ -6,3 +6,4 @@ venv
 app.db
 geckodriver.log
 .idea
+.coverage

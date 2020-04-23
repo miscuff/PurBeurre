@@ -68,7 +68,6 @@ class ProductsPageTestCase(TestCase):
                                  password='glass onion')
         self.u1 = User.objects.get(username='john')
 
-
     # test the list of products
     def test_display_product(self):
         product_name = self.p1.product_name
@@ -105,3 +104,15 @@ class ProductsPageTestCase(TestCase):
     def test_display_favorites(self):
         response = self.client.get(reverse('products:show_favorites'))
         self.assertEqual(response.status_code, 302)
+
+
+# Products Models
+class ProductsModelsTestCase(TestCase):
+
+    def setUp(self):
+        Category.objects.create(name='soupe')
+        self.c1 = Category.objects.get(name='soupe')
+
+    def test_category(self):
+        nom_cat = self.c1.name
+        self.assertEqual(nom_cat, 'soupe')
