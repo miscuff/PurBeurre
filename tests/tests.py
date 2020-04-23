@@ -3,7 +3,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-from account.forms import LoginForm, CreationForm
 from products.models import Category, Product, Substitute
 
 
@@ -19,26 +18,37 @@ class HomePageTestCase(TestCase):
 class AccountPageTestCase(TestCase):
 
     def setUp(self):
-        self.create_user = CreationForm('Alex', 'alexandre@gmail.com', 'toto')
-        self.user = User.objects.get(email='alexandre@gmail.com')
+        self.user = User.objects.create_user(username='john',
+                                             email='jlennon@beatles.com',
+                                             password='glass onion')
 
     # test connexion
     def test_connexion(self):
-        pass
+        u1 = User.objects.get(username='john')
+        response = self.client.post(reverse('account:connexion'),
+                                    {'user_id': u1.id})
+        self.assertEqual(response.status_code, 200)
+
+    # test account_page
+    def test_account_page(self):
+        self.client.login(username="john", password="glass onion")
+        response = self.client.get(reverse('account:account'))
+        self.assertEqual(response.status_code, 200)
 
     # test deconnexion
     def test_deconnexion(self):
-        pass
-
-    # test ccount_page
-    def test_account_page(self):
-        username = self.user.username
-        response = self.client.get(reverse('account:account', args=(username,)))
+        self.client.login(username="john", password="glass onion")
+        self.client.logout()
+        response = self.client.get(reverse('account:deconnexion'))
         self.assertEqual(response.status_code, 200)
 
     # test account_creation
     def test_account_creation(self):
-        pass
+        response = self.client.post(reverse('account:creation'),
+                                    {'username': 'roberto',
+                                     'email': 'robertc@madrid.com',
+                                    'password': 'allez'})
+        self.assertEqual(response.status_code, 200)
 
 
 # Products app
@@ -57,10 +67,7 @@ class ProductsPageTestCase(TestCase):
                                  email='jlennon@beatles.com',
                                  password='glass onion')
         self.u1 = User.objects.get(username='john')
-        self.substitute = Substitute.objects.create(id=self.p1.id,
-                                                    created_at=timezone.now(),
-                                                    user_id=self.u1.id)
-        self.s1 = Substitute.objects.get(user_id=self.u1)
+
 
     # test the list of products
     def test_display_product(self):
@@ -85,10 +92,16 @@ class ProductsPageTestCase(TestCase):
 
     # test the sub is saved it will add one row to database
     def test_save_substitutes(self):
-        substitute_id = self.u1.id
-        pass
+        old_sub = Substitute.objects.count()  # count bookings before a request
+        self.substitute = Substitute.objects.create(id=self.p1.id,
+                                                    created_at=timezone.now(),
+                                                    user_id=self.u1.id)
+        self.s1 = Substitute.objects.get(user_id=self.u1)
+        response = self.client.get(reverse('products:save', args=(self.s1,)))
+        new_sub = Substitute.objects.count()  # count bookings after
+        self.assertEqual(new_sub, old_sub + 1)  # make sure 1 booking was added
 
     # test the list of favorites
     def test_display_favorites(self):
         response = self.client.get(reverse('products:show_favorites'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
