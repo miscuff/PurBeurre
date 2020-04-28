@@ -110,9 +110,39 @@ class ProductsPageTestCase(TestCase):
 class ProductsModelsTestCase(TestCase):
 
     def setUp(self):
-        Category.objects.create(name='soupe')
-        self.c1 = Category.objects.get(name='soupe')
+        self.cat = Category.objects.create(name='soupe')
+        self.product = Product.objects.create(product_name='sirop de menthe',
+                                              nutriscore_grade='d',
+                                              store='naturalia',
+                                              url_picture='http://url_picture.fr',
+                                              url_picture_small='http://url_picture_small.fr',
+                                              url_product='http://url_product.fr',
+                                              description='une super boisson',
+                                              category=self.cat)
+        self.user = User.objects.create_user(username='john',
+                                             email='jlennon@beatles.com',
+                                             password='glass onion')
+        self.time = timezone.now()
+        self.substitute = Substitute.objects.create(id=self.product.id,
+                                                    created_at=self.time,
+                                                    user_id=self.user.id)
 
     def test_category(self):
-        nom_cat = self.c1.name
-        self.assertEqual(nom_cat, 'soupe')
+        cat1 = Category.objects.get(name='soupe')
+        self.assertEqual(self.cat, cat1)
+
+    def test_product(self):
+        p1 = self.product
+        self.assertEqual(p1.product_name, 'sirop de menthe')
+        self.assertEqual(p1.nutriscore_grade, 'd')
+        self.assertEqual(p1.store, 'naturalia')
+        self.assertEqual(p1.url_picture, 'http://url_picture.fr')
+        self.assertEqual(p1.url_picture_small, 'http://url_picture_small.fr')
+        self.assertEqual(p1.url_product, 'http://url_product.fr')
+        self.assertEqual(p1.description, 'une super boisson')
+        self.assertEqual(p1.category, self.cat)
+
+    def test_substitute(self):
+        s1 = self.substitute
+        self.assertEqual(s1.id, self.product.id)
+        self.assertEqual(s1.user_id, self.user.id)
