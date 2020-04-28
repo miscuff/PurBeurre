@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
-from .models import Category, Product, Substitute
+from .models import Product, Substitute
 
 
 def search(request):
+    """
+    :param request: User's input
+    :return: List of products
+    """
     search_products = request.POST.get('search_products').lower()
     products_db = Product.objects.filter(product_name__istartswith=
                                          search_products).values()
@@ -17,6 +21,11 @@ def search(request):
 
 
 def detail(request, product_id):
+    """
+    :param request: User choose a product
+    :param product_id: id of the product
+    :return: List of substitutes
+    """
     product_chosen = Product.objects.get(pk=product_id)
     # Get substitutes for the product chosen
     category = product_chosen.category_id
@@ -37,6 +46,11 @@ def detail(request, product_id):
 
 
 def substitute(request, product_id):
+    """
+    :param request: Description button
+    :param product_id: id of a product
+    :return: Description page
+    """
     substitute_chosen = Product.objects.get(pk=product_id)
     nutriscore = substitute_chosen.nutriscore_grade
     liste_nut = ['a','b','c','d','e']
@@ -53,6 +67,11 @@ def substitute(request, product_id):
 
 @login_required
 def save(request, sub_id):
+    """
+    :param request: save button
+    :param sub_id: id of the substitute
+    :return: Favorite list
+    """
     fav = Product.objects.get(pk=sub_id)
     user = request.user.id
     try:
@@ -69,6 +88,10 @@ def save(request, sub_id):
 
 @login_required
 def show_favorites(request):
+    """
+    :param request: Favorite button if user is login
+    :return: Favorite page
+    """
     user_id = request.user.id
     sub = Substitute.objects.filter(user_id=user_id).values('id')
     get_all_subs = []

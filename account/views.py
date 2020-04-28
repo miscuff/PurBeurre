@@ -8,6 +8,10 @@ from .forms import LoginForm, CreationForm
 
 @csrf_exempt
 def connexion(request):
+    """
+    :param request: None
+    :return: Return connexion page if the form is valid
+    """
     error = False
     form = LoginForm(request.POST or None)
     if form.is_valid():
@@ -26,11 +30,19 @@ def connexion(request):
 
 # Voir comment utiliser plus proprement
 def deconnexion(request):
+    """
+    :param request: Click the button logout
+    :return: homepage
+    """
     logout(request)
     return render(request, 'home/accueil.html', locals())
 
 
 def account_creation(request):
+    """
+    :param request: Creation button
+    :return: Connexion page is the form is valid
+    """
     form = CreationForm(request.POST or None)
     if form.is_valid():
         username = form.cleaned_data['username']
@@ -46,6 +58,10 @@ def account_creation(request):
 
 
 def account_page(request):
+    """
+    :param request: user is login
+    :return: account page
+    """
     user_id = request.user.id
     user = User.objects.filter(pk=user_id).first()
     context = {

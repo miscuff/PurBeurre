@@ -127,10 +127,12 @@ class ProductsModelsTestCase(TestCase):
                                                     created_at=self.time,
                                                     user_id=self.user.id)
 
+    # Test category on DB
     def test_category(self):
         cat1 = Category.objects.get(name='soupe')
         self.assertEqual(self.cat, cat1)
 
+    # Test product on DB
     def test_product(self):
         p1 = self.product
         self.assertEqual(p1.product_name, 'sirop de menthe')
@@ -142,6 +144,7 @@ class ProductsModelsTestCase(TestCase):
         self.assertEqual(p1.description, 'une super boisson')
         self.assertEqual(p1.category, self.cat)
 
+    # Test substitute on DB
     def test_substitute(self):
         s1 = self.substitute
         self.assertEqual(s1.id, self.product.id)
