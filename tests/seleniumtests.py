@@ -1,24 +1,38 @@
-from django.test import TestCase
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-import time
 
 
 class MySeleniumTests(StaticLiveServerTestCase):
 
-    def test_login(self):
-        browser = webdriver.Firefox()
-        time.sleep(10)
-        browser.get('https://purdebeurre.herokuapp.com/')
-
-        assert 'Pur' in browser.title
-        elem = browser.find_element_by_id('page-top')
-        assert (elem is not None)
-
-        browser.quit()
-
     def test_connexion_account(self):
-        browser = webdriver.Firefox()
-        time.sleep(10)
-        browser.get('https://purdebeurre.herokuapp.com/')
+        baseurl = "https://purdebeurre.herokuapp.com/account/connexion"
+        username = "alexandre"
+        password = "toto"
 
+        xpaths = {'loginBox': "//input[@name='username']",
+                  'passwordBox': "//input[@name='password']",
+                  'submitButton': "//input[@type='submit']"
+                  }
+
+        browser = webdriver.Firefox()
+        browser.get(baseurl)
+        browser.maximize_window()
+
+        # Clear Username TextBox if already allowed "Remember Me"
+        browser.find_element_by_xpath(xpaths['loginBox']).clear()
+
+        # Write Username in Username TextBox
+        browser.find_element_by_xpath(xpaths['loginBox']).send_keys(username)
+
+        # Clear Password TextBox if already allowed "Remember Me"
+        browser.find_element_by_xpath(xpaths['passwordBox']).clear()
+
+        # Write Password in password TextBox
+        browser.find_element_by_xpath(xpaths['passwordBox']).send_keys(
+            password)
+
+        # Click Login button
+        browser.find_element_by_xpath(xpaths['submitButton']).click()
+
+        assert "Bonjour" in browser.page_source
+        browser.quit()
