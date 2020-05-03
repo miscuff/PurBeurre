@@ -11,8 +11,9 @@ Link : https://purdebeurre.herokuapp.com/
 
 * Django : Python framework to build web app
 * heroku : Cloud platform as a service supporting the application
-* selenium : Launch automatically functional tests, you need to download
-geckodriver in local for the browser
+* pytest : To manage program's tests
+* selenium : Launch automatically functional tests, you need to get
+geckodriver
 
 
 ## How to setup the project 
@@ -35,11 +36,6 @@ geckodriver in local for the browser
     
             python3 manage.py runserver
             
-    - Launch unit tests 
+    - Launch tests 
 
-            python3 manage.py test tests
-            
-     - Launch functional tests with selenium 
-            
-            export PATH=$PATH:'Your path'
-            python3 manage.py test seleniumtests
+            pytest
