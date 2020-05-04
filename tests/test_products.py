@@ -57,11 +57,6 @@ class ProductsPageTestCase(TestCase):
         new_sub = Substitute.objects.count()  # count bookings after
         self.assertEqual(new_sub, old_sub + 1)  # make sure 1 booking was added
 
-    # test the list of favorites
-    def test_show_favorites(self):
-        response = self.client.get(reverse('products:show_favorites'))
-        self.assertEqual(response.status_code, 302)
-
 
 # Products Models
 class ProductsModelsTestCase(TestCase):
