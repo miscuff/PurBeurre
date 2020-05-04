@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.utils import timezone
+import debug_toolbar
 
 from products.models import Category, Product, Substitute
 
@@ -22,6 +23,7 @@ class ProductsPageTestCase(TestCase):
                                  email='jlennon@beatles.com',
                                  password='glass onion')
         self.u1 = User.objects.get(username='john')
+
 
     # test the list of products
     def test_display_product(self):
@@ -45,18 +47,18 @@ class ProductsPageTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     # test the sub is saved it will add one row to database
-    def test_save_substitutes(self):
+    def test_count_substitutes(self):
         old_sub = Substitute.objects.count()  # count bookings before a request
         self.substitute = Substitute.objects.create(id=self.p1.id,
                                                     created_at=timezone.now(),
                                                     user_id=self.u1.id)
         self.s1 = Substitute.objects.get(user_id=self.u1)
-        response = self.client.get(reverse('products:save', args=(self.s1,)))
+        self.client.get(reverse('products:save', args=(self.s1,)))
         new_sub = Substitute.objects.count()  # count bookings after
         self.assertEqual(new_sub, old_sub + 1)  # make sure 1 booking was added
 
     # test the list of favorites
-    def test_display_favorites(self):
+    def test_show_favorites(self):
         response = self.client.get(reverse('products:show_favorites'))
         self.assertEqual(response.status_code, 302)
 

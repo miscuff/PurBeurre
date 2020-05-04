@@ -33,8 +33,21 @@ class AccountPageTestCase(TestCase):
 
     # test account_creation
     def test_account_creation(self):
+        # Nominal account creation
         response = self.client.post(reverse('account:creation'),
                                     {'username': 'roberto',
                                      'email': 'robertc@madrid.com',
                                     'password': 'allez'})
         self.assertEqual(response.status_code, 200)
+        # Email already used
+        response2 = self.client.post(reverse('account:creation'),
+                                    {'username': 'robertoto',
+                                     'email': 'robertc@madrid.com',
+                                     'password': 'allez'})
+        self.assertEqual(response2.status_code, 200)
+        # Username already used
+        response3 = self.client.post(reverse('account:creation'),
+                                     {'username': 'roberto',
+                                      'email': 'robertco@madrid.com',
+                                      'password': 'allez'})
+        self.assertEqual(response3.status_code, 200)
