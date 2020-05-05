@@ -8,3 +8,4 @@ geckodriver.log
 .idea/
 .coverage
 htmlcov/
+bp_project/settings/production.py
