@@ -16,4 +16,4 @@ services:
 env: DJANGO_SETTINGS_MODULE='bp_project.settings.travis'
 
 script:
-  - pytest
+  - ./manage.py test
