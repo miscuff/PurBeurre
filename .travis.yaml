@@ -1,11 +1,11 @@
 language: python
 python:
-  - '3.5'
+  - '3.7'
 
 # safelist
 branches:
   only:
-    - staging
+      - staging
 
 before_script:
   - pip3 install -r requirements.txt
@@ -16,4 +16,4 @@ services:
 env: DJANGO_SETTINGS_MODULE="bp_project.settings.travis"
 
 script:
-  - python3 manage.py test
+  - pytest
