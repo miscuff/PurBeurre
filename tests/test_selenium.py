@@ -1,11 +1,12 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 
 class MySeleniumTests(StaticLiveServerTestCase):
 
     def test_connexion_account(self):
-        baseurl = "https://purdebeurre.herokuapp.com/account/connexion"
+        baseurl = "http://167.71.166.235/account/connexion"
         username = "alexandre"
         password = "toto"
 
@@ -14,7 +15,9 @@ class MySeleniumTests(StaticLiveServerTestCase):
                   'submitButton': "//input[@type='submit']"
                   }
 
-        browser = webdriver.Firefox()
+        options = Options()
+        options.headless = True
+        browser = webdriver.Firefox(options=options)
         browser.get(baseurl)
         browser.maximize_window()
 
