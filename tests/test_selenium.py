@@ -1,5 +1,6 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 
 class MySeleniumTests(StaticLiveServerTestCase):
@@ -14,7 +15,9 @@ class MySeleniumTests(StaticLiveServerTestCase):
                   'submitButton': "//input[@type='submit']"
                   }
 
-        browser = webdriver.Firefox()
+        options = Options()
+        options.headless = True
+        browser = webdriver.Firefox(options=options)
         browser.get(baseurl)
         browser.maximize_window()
 
