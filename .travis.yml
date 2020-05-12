@@ -1,6 +1,6 @@
 language: python
 addons:
-  firefox: "75.0.0esr"
+  firefox: "75.0"
 python:
   - '3.7'
 
