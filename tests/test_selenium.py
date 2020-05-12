@@ -5,7 +5,7 @@ from selenium import webdriver
 class MySeleniumTests(StaticLiveServerTestCase):
 
     def test_connexion_account(self):
-        baseurl = "https://purdebeurre.herokuapp.com/account/connexion"
+        baseurl = "http://167.71.166.235/account/connexion"
         username = "alexandre"
         password = "toto"
 
