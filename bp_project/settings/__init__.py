@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'account',
     'products',
     'django.contrib.postgres',
+    'django_cron',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+CRON_CLASSES = [
+    "products.management.commands.cron.MyCronJob",
 ]
 
 ROOT_URLCONF = 'bp_project.urls'
