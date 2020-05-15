@@ -5,7 +5,7 @@ from products.models import Product, Category
 
 
 class Command(BaseCommand):
-
+#test travis
     def __init__(self):
         self.CATEGORIES_ARRAY = ['petit-dejeuners', 'plats-prepares',
                                   'snacks-sales', 'biscuits-et-gateaux',
