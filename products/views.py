@@ -1,8 +1,12 @@
+import logging
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
 from .models import Product, Substitute
+
+logger = logging.getLogger(__name__)
 
 
 def search(request):
@@ -17,6 +21,10 @@ def search(request):
         'products': products_db,
         'search_products': search_products
     }
+    logger.info('New search', exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': request,
+    })
     return render(request, 'products/aliments.html', context)
 
 
