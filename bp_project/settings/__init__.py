@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -92,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'purbeurre',
-        'USER': 'postgres',
-        'PASSWORD': '',
+        'USER': 'alex',
+        'PASSWORD': 'alexandre',
         'HOST': '',
         'PORT': '5432',
     }
@@ -148,7 +147,5 @@ LOGOUT_REDIRECT_URL = ''
 # You need to decorate the method with @login_required
 LOGIN_URL = '/account/connexion/'
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
