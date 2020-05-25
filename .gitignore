@@ -9,4 +9,3 @@ geckodriver.log
 .coverage
 htmlcov/
 bp_project/settings/production.py
-bp_project/setting/__init__.py
