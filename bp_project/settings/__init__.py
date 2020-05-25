@@ -131,7 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'bp_project/static/'
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -143,7 +143,4 @@ LOGOUT_REDIRECT_URL = ''
 # You need to decorate the method with @login_required
 LOGIN_URL = '/account/connexion/'
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
