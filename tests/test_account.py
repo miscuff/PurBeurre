@@ -1,6 +1,10 @@
 from django.urls import reverse
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.db import IntegrityError
+
+from account.forms import CreationForm
 
 
 # Account app
@@ -31,26 +35,49 @@ class AccountPageTestCase(TestCase):
         response = self.client.get(reverse('account:deconnexion'))
         self.assertEqual(response.status_code, 200)
 
-    """
-    # test account_creation
-    def test_account_creation(self):
-        # Nominal account creation
-        response = self.client.post(reverse('account:creation'),
-                                    {'username': 'roberto',
-                                     'email': 'robertc@madrid.com',
-                                    'password': 'allez'})
-        self.assertEqual(response.status_code, 200)
+    # test account_creation with email
+    def test_account_creation_email(self):
+        # Nominal case
+        User.objects.create_user(username='roberto',
+                                         email='roberto@beatles.com',
+                                         password='glass onion')
+
         # Email already used
-        response2 = self.client.post(reverse('account:creation'),
-                                    {'username': 'robertoto',
-                                     'email': 'robertc@madrid.com',
-                                     'password': 'allez'})
-        self.assertEqual(response2.status_code, 200)
+        try:
+            user2 = User.objects.create_user(username='roberto2',
+                                             email='roberto@beatles.com',
+                                             password='glass onion')
+            user2.full_clean()
+        except ValidationError as e:
+            self.assertTrue('email' in e.message_dict)
+
+    # test account_creation with username
+    def test_account_creation_username(self):
+        # Nominal case
+        User.objects.create_user(username='roberto',
+                                 email='roberto@beatles.com',
+                                 password='glass onion')
         # Username already used
-        response3 = self.client.post(reverse('account:creation'),
-                                     {'username': 'roberto',
-                                      'email': 'robertco@madrid.com',
-                                      'password': 'allez'})
-        self.assertEqual(response3.status_code, 200) 
-        # EMAIL NOT POST
-        """
+        with self.assertRaises(IntegrityError):
+            User.objects.create_user(username='roberto',
+                                     email='roberto3@beatles.com',
+                                     password='glass onion')
+
+    # test form is valid
+    def test_form_valid(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'toto',
+        }
+        form = CreationForm(data)
+        self.assertTrue(form.is_valid())
+
+    # test form is not valid
+    def test_form_invalid(self):
+        data = {
+            'username': 'alex',
+            'password': 'toto',
+        }
+        form = CreationForm(data)
+        self.assertFalse(form.is_valid())
