@@ -12,7 +12,7 @@ class LoginForm(forms.Form):
 # Create CreationForm
 class CreationForm(forms.Form):
     username = forms.CharField(label="Votre nom d'utilisateur", max_length=30)
-    email = forms.EmailField(label="Votre adresse e-mail")
+    #email = forms.CharField(label="Votre adresse e-mail")
     password = forms.CharField(label="Votre mot de passe", max_length=10,
                                widget=forms.PasswordInput)
 
