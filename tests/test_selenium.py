@@ -10,7 +10,13 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.username = 'Alexandre15'
         self.email = 'alexandre15@wanadoo.fr'
         self.password = 'P@ssword123'
-        self.browser = webdriver.Chrome(ChromeDriverManager().install())
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        self.browser = webdriver.Chrome(ChromeDriverManager().install(),
+                                        chrome_options=chrome_options)
+
 
     def test_a_creation(self):
         base_url = "http://127.0.0.1:8000/account/new_user"
