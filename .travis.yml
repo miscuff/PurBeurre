@@ -25,4 +25,5 @@ services:
 env: DJANGO_SETTINGS_MODULE='bp_project.settings.travis'
 
 script:
+  - ./manage.py runserver
   - pytest

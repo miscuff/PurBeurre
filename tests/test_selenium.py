@@ -33,7 +33,6 @@ class MySeleniumTests(StaticLiveServerTestCase):
 
         self.browser.get(base_url)
         self.browser.maximize_window()
-        # self.browser.maximize_window()
 
         # Clear Username TextBox if already allowed "Remember Me"
         self.browser.find_element_by_xpath(xpaths['loginBox']).clear()
