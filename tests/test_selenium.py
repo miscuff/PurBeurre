@@ -1,7 +1,7 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-# from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 class MySeleniumTests(StaticLiveServerTestCase):
@@ -10,17 +10,18 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.username = 'Alexandre15'
         self.email = 'alexandre15@wanadoo.fr'
         self.password = 'P@ssword123'
-        # When using Selenium Test in Development Platform
-        """chrome_options = webdriver.ChromeOptions()
+        # To Launch with Chrome
+        chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         self.browser = webdriver.Chrome(ChromeDriverManager().install(),
-                                        chrome_options=chrome_options)"""
-        # When Using Selenium with Travis
-        options = Options()
+                                        chrome_options=chrome_options)
+
+        # To Launch with Firefox
+        """ options = Options()
         options.headless = True
-        self.browser = webdriver.Firefox(options=options)
+        self.browser = webdriver.Firefox(options=options)"""
 
     def test_a_creation(self):
         base_url = "http://127.0.0.1:8000/account/new_user"
