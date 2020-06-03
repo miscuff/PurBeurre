@@ -1,5 +1,6 @@
 language: python
 addons:
+  firefox: "75.0"
   chrome: stable
 python:
   - '3.7'

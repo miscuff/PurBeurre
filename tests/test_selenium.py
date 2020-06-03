@@ -1,7 +1,7 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from django.contrib.auth.models import User
+from selenium.webdriver.firefox.options import Options
+# from webdriver_manager.chrome import ChromeDriverManager
 
 
 class MySeleniumTests(StaticLiveServerTestCase):
@@ -10,13 +10,17 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.username = 'Alexandre15'
         self.email = 'alexandre15@wanadoo.fr'
         self.password = 'P@ssword123'
-        chrome_options = webdriver.ChromeOptions()
+        # When using Selenium Test in Development Platform
+        """chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         self.browser = webdriver.Chrome(ChromeDriverManager().install(),
-                                        chrome_options=chrome_options)
-
+                                        chrome_options=chrome_options)"""
+        # When Using Selenium with Travis
+        options = Options()
+        options.headless = True
+        self.browser = webdriver.Firefox(options=options)
 
     def test_a_creation(self):
         base_url = "http://127.0.0.1:8000/account/new_user"
@@ -28,6 +32,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
                   }
 
         self.browser.get(base_url)
+        self.browser.maximize_window()
         # self.browser.maximize_window()
 
         # Clear Username TextBox if already allowed "Remember Me"
