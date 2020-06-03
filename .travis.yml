@@ -16,12 +16,13 @@ before_install:
   - tar -xzf geckodriver-v0.26.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
 
-before_script:
-  - pip install -r requirements.txt
-  - python3 manage.py runserver &
-
 services:
   - postgresql
+
+before_script:
+  - pip install -r requirements.txt
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - python3 manage.py runserver &
 
 env: DJANGO_SETTINGS_MODULE='bp_project.settings.travis'
 
