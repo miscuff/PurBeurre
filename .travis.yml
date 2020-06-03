@@ -19,6 +19,7 @@ before_install:
 before_script:
   - pip install -r requirements.txt
   - python3 manage.py runserver &
+  - psql -c 'create database travis_ci_test;' -U postgres
 
 services:
   - postgresql
