@@ -7,8 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 class MySeleniumTests(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.username = 'Alexandre15'
-        self.email = 'alexandre15@wanadoo.fr'
+        self.username = 'Alexandre25'
+        self.email = 'alexandre25@wanadoo.fr'
         self.password = 'P@ssword123'
         # To Launch with Chrome
         chrome_options = webdriver.ChromeOptions()
