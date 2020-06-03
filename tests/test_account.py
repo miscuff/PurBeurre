@@ -63,21 +63,93 @@ class AccountPageTestCase(TestCase):
                                      email='roberto3@beatles.com',
                                      password='glass onion')
 
-    # test form is valid
-    def test_form_valid(self):
-        data = {
-            'username': 'alex',
-            'email': 'alex@gmail.com',
-            'password': 'toto',
-        }
-        form = CreationForm(data)
-        self.assertTrue(form.is_valid())
-
-    # test form is not valid
+    # test form with invalid mail
     def test_form_invalid(self):
         data = {
             'username': 'alex',
+            'email': 'alex',
             'password': 'toto',
         }
         form = CreationForm(data)
         self.assertFalse(form.is_valid())
+
+    # test password nominal
+    def test_password_nominal(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'Alexandre1@',
+        }
+        form = CreationForm(data)
+        self.assertTrue(form.is_valid())
+
+    # test password length
+    def test_password_length(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'Ale1@',
+        }
+        form = CreationForm(data)
+        self.assertEqual(
+            form.errors['password'],
+            ["Le mot de passe doit comporter au moins 8 caracteres"]
+        )
+        self.assertIn('class="errorlist"', form.as_p())
+
+    # test password uppercase
+    def test_password_upper(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'aleeeeee1@',
+        }
+        form = CreationForm(data)
+        self.assertEqual(
+            form.errors['password'],
+            ["Le mot de passe doit comporter au moins 1 majuscule"]
+        )
+        self.assertIn('class="errorlist"', form.as_p())
+
+    # test password lowercase
+    def test_password_lower(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'ALEEEEEEE1@',
+        }
+        form = CreationForm(data)
+        self.assertEqual(
+            form.errors['password'],
+            ["Le mot de passe doit comporter au moins 1 minuscule"]
+        )
+        self.assertIn('class="errorlist"', form.as_p())
+
+    # test password special character
+    def test_password_spe(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'Alexandreee1',
+        }
+        form = CreationForm(data)
+        self.assertEqual(
+            form.errors['password'],
+            ["Le mote de passe doit comporter au moins 1 "
+             "caractere special : @ - / % $ * & #"]
+        )
+        self.assertIn('class="errorlist"', form.as_p())
+
+    # test password number
+    def test_password_number(self):
+        data = {
+            'username': 'alex',
+            'email': 'alex@gmail.com',
+            'password': 'Alexandreee@',
+        }
+        form = CreationForm(data)
+        self.assertEqual(
+            form.errors['password'],
+            ["Le mot de passe doit comporter au moins 1 chiffre"]
+        )
+        self.assertIn('class="errorlist"', form.as_p())

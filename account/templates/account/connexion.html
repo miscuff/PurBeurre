@@ -28,7 +28,7 @@
                             <form action="{% url 'account:connexion' %}" method="post">
                                 {% csrf_token %}
                                 {{ form.as_p }}
-                                <input type="submit" value="Submit" />
+                                <input type="submit" value="Submit"/>
                             </form>
                             {% if error %}
                             <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>

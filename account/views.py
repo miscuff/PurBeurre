@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import LoginForm, CreationForm
+from .forms import LoginForm, CreationForm, ParagraphErrorList
 
 
 @csrf_exempt
@@ -13,7 +13,7 @@ def connexion(request):
     :return: Return connexion page if the form is valid
     """
     error = False
-    form = LoginForm(request.POST or None)
+    form = LoginForm(request.POST or None, error_class=ParagraphErrorList)
     if form.is_valid():
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
@@ -43,7 +43,7 @@ def account_creation(request):
     :param request: Creation button
     :return: Connexion page is the form is valid
     """
-    form = CreationForm(request.POST or None)
+    form = CreationForm(request.POST or None, error_class=ParagraphErrorList)
     if form.is_valid():
         username = form.cleaned_data['username']
         email = form.cleaned_data['email']
